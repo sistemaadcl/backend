@@ -1,12 +1,12 @@
 const express = require("express");
-const dotenv = require("dotenv");
 const morgan = require("morgan");
 const cors = require("cors");
-const path = require("path");
+const clientRouter = require('./routes/clients.routes');
+const productRouter = require('./routes/products.routes');
+const orderRouter = require('./routes/orders.routes');
 
 //Configuración
 const app = express();
-
 
 //Middlewares
 app.use(express.static("public"));
@@ -22,6 +22,9 @@ app.use(
 );
 
 //Rutas
+app.use('/api/v1', productRouter);
+app.use('/api/v1', clientRouter);
+app.use('/api/v1', orderRouter);
 
 module.exports = app;
 
