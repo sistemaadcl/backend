@@ -9,3 +9,15 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 4000;
 
+//Middlewares
+app.use(express.static("public"));
+app.use(morgan("dev"));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(
+  cors({
+    origin: ["http://localhost:8080"],
+    methods: ["GET", "POST", "DELETE", "PUT"],
+    credentials: true,
+  })
+);
