@@ -24,4 +24,5 @@ app.use(
 
 //Rutas
 
+module.exports = app;
 
