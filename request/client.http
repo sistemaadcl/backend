@@ -1,0 +1,12 @@
+###POST
+POST http://localhost:3000/api/v1/client
+Content-Type: application/json
+
+{
+  "name": "Abraham",
+  "lastname": "Rivas",
+  "dni": "23238289323"
+}
+
+###GET CLIENT
+GET http://localhost:3000/api/v1/client?name=Abraham
