@@ -7,5 +7,9 @@ module.exports = {
     const client = new Client({ name, lastname, dni });
     const newClient = await client.save();
     res.json(newClient);
+  },
+  searchClient (req, res) {
+    console.log(req.query);
+    res.send('ok')
   }
 }
