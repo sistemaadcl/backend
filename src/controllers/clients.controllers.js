@@ -8,8 +8,9 @@ module.exports = {
     const newClient = await client.save();
     res.json(newClient);
   },
-  searchClient (req, res) {
-    console.log(req.query);
-    res.send('ok')
+  async searchClient (req, res) {
+    const { name } = req.query;
+    const client = await Client.findOne({ name });
+    res.json(client);
   }
 }
