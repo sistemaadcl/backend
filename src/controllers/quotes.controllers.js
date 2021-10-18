@@ -6,5 +6,9 @@ module.exports = {
     const quotes = new Quotes({ name, request});
     const newQuotes = await quotes.save();
     res.json(newQuotes);
+  },
+  async getQuotes(){
+    const quotes = await Quotes.find({});
+    res.json(quotes);
   }
 }
