@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const clientSchema = mongoose.Schema({
+const quotesSchema = mongoose.Schema({
   name: {
     type: String,
   },
@@ -10,5 +10,5 @@ const clientSchema = mongoose.Schema({
     type: String
   },
 })
-const client = mongoose.model('clients', clientSchema);
-module.exports = client;
+const quotes = mongoose.model('quotes', quotesSchema);
+module.exports = quotes;
