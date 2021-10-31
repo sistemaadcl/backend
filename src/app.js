@@ -5,9 +5,13 @@ import clientRouter from './routes/clients.routes.js';
 import productRouter from './routes/products.routes.js';
 import orderRouter from './routes/orders.routes.js';
 import usersRouter from './routes/users.routes.js';
+import { createRoles, createAdmin} from "./utils/initialSetup.js";
+
 
 //Configuración
 const app = express();
+createRoles();
+createAdmin();
 
 //Middlewares
 app.use(express.static("public"));

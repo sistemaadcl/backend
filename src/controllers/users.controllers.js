@@ -32,7 +32,7 @@ export const signUp = async (req, res) => {
 export const signin = async (req, res) => {
   try {
     // Request body email can be an email or username
-    const userFound = await User.findOne({ email: req.body.email }).populate(
+    const userFound = await User.findOne({ username: req.body.username }).populate(
       "roles"
     );
 
@@ -48,8 +48,8 @@ export const signin = async (req, res) => {
         token: null,
         message: "Invalid Password",
       });
-
-    const token = jwt.sign({ id: userFound._id }, config.SECRET, {
+      console.log(userFound);
+    const token = jwt.sign({ id: userFound._id, role: userFound.roles[0].name }, 'secret', {
       expiresIn: 86400, // 24 hours
     });
 
