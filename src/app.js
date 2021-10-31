@@ -1,9 +1,10 @@
-const express = require("express");
-const morgan = require("morgan");
-const cors = require("cors");
-const clientRouter = require('./routes/clients.routes');
-const productRouter = require('./routes/products.routes');
-const orderRouter = require('./routes/orders.routes');
+import express from "express";
+import morgan from "morgan";
+import cors from "cors";
+import clientRouter from './routes/clients.routes.js';
+import productRouter from './routes/products.routes.js';
+import orderRouter from './routes/orders.routes.js';
+import usersRouter from './routes/users.routes.js';
 
 //Configuración
 const app = express();
@@ -25,6 +26,7 @@ app.use(
 app.use('/api/v1', productRouter);
 app.use('/api/v1', clientRouter);
 app.use('/api/v1', orderRouter);
+app.use('/api/v1', usersRouter);
 
-module.exports = app;
+export default app;
 

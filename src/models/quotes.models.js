@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const quotesSchema = mongoose.Schema({
   name: {
     type: String,
@@ -8,4 +8,4 @@ const quotesSchema = mongoose.Schema({
   },
 })
 const quotes = mongoose.model('quotes', quotesSchema);
-module.exports = quotes;
+export default quotes;

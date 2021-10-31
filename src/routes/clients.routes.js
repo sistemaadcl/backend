@@ -1,8 +1,8 @@
-const { Router } = require('express');
+import { Router } from 'express';
 const router = Router();
-const clientController = require('../controllers/clients.controllers')
+import { newClient, searchClient } from '../controllers/clients.controllers.js';
 
-router.post('/client', clientController.newClient)
-router.get('/client', clientController.searchClient)
+router.post('/client', newClient)
+router.get('/client', searchClient)
 
-module.exports = router;
+export default router;

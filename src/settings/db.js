@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 
-const connection = mongoose.connect(process.env.DATABASE_URI, {
+const connection = mongoose.connect('mongodb://localhost/system_adcl', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
 
-module.exports = connection;
+export default connection;
