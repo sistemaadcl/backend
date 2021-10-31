@@ -14,11 +14,11 @@ export const createRoles = async () => {
 
     // Create default Roles
     const values = await Promise.all([
-      new Role({ name: "user" }).save(),
-      new Role({ name: "moderator" }).save(),
       new Role({ name: "admin" }).save(),
+      new Role({ name: "invent" }).save(),
+      new Role({ name: "cont" }).save(),
+      new Role({ name: "sale" }).save(),
     ]);
-
     console.log(values);
   } catch (error) {
     console.error(error);
