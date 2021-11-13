@@ -9,6 +9,12 @@ const clientSchema = mongoose.Schema({
   dni: {
     type: String
   },
+  cotizations: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Cotizations",
+    },
+  ],
 })
 const client = mongoose.model('clients', clientSchema);
 

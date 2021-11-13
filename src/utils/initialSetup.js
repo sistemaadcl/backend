@@ -18,6 +18,7 @@ export const createRoles = async () => {
       new Role({ name: "invent" }).save(),
       new Role({ name: "cont" }).save(),
       new Role({ name: "sale" }).save(),
+      new Role({ name: "user" }).save(),
     ]);
     console.log(values);
   } catch (error) {
@@ -27,17 +28,16 @@ export const createRoles = async () => {
 
 export const createAdmin = async () => {
   // check for an existing admin user
-  const user = await User.findOne({ email: "admin@localhost" });
-  // get roles _id
-  const roles = await Role.find({ name: { $in: ["admin", "moderator"] } });
+  const user = await User.findOne({ username: "admin" });
 
   if (!user) {
     // create a new admin user
     await User.create({
+      name: "admin",
       username: "admin",
       email: "admin@localhost",
       password: await bcrypt.hash("admin", 10),
-      roles: roles.map((role) => role._id),
+      roles: ["618e904df1dfe3d409774e76"],
     });
     console.log('Admin User Created!')
   }
