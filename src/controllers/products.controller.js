@@ -2,7 +2,7 @@ import Product from '../models/products.models.js';
 
 export const getAllProducts = async (req, res) => {
     const products = await Product.find();
-    if (products.length > 1) {
+    if (products.length > 0) {
         res.json(products)
     }else{
         res.json([])

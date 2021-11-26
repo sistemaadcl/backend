@@ -92,3 +92,8 @@ export const getUserById = async (req, res) => {
     return res.json(getUser);
   }
 };
+
+export const getRoles = async (req,res) => {
+  const getRoles = await Role.find()
+  res.json(getRoles)
+}
