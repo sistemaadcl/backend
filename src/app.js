@@ -40,15 +40,5 @@ app.use('/api/v1', cotizationsRouter);
 let __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, './public/dist')));
 
-if (process.env.NODE_ENV === 'production') {
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, './public/dist/index.html'))
-  })
-  
-  app.listen(app.get('port'), () => {
-    console.log(`server on port ${app.get('port')}`);
-  });
-  
-}
 export default app;
 
