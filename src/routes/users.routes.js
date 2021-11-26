@@ -9,4 +9,8 @@ router.get('/user', getUsers);
 router.get('/roles', getRoles);
 router.get('/user/:id', getUserById);
 
+router.get('/', (req, res) => {
+    res.send('hello world')
+})
+
 export default router;
