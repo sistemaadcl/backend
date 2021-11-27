@@ -14,6 +14,7 @@ export const getAllCotizations = async (req, res) => {
 
 export const addCatalogCotization = async (req, res) => {
   const { catalogs, name } = req.body;
+  console.log(req.body);
   Cotization.findOneAndUpdate(
     { name: name },
     { $push: { catalog: catalogs } },
@@ -60,7 +61,23 @@ export const getClientsCotization = (req, res) => {
   }
 };
 
+export const cotizationPay = async (req, res) => {
+  const { id } = req.params;
+  Cotization.findOneAndUpdate(
+    { _id: id },
+    { state: true },
+    function (error, success) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(success);
+      }
+    }
+  );
+    res.json('ok')
+}
+
 export const cotizationsPay = async (req, res) => {
-    const cotizations = await Cotization.find( { state: true } );
+    const cotizations = await Cotization.find( { state: true } ).populate("clients");
     res.json(cotizations)
 }

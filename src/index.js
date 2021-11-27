@@ -13,12 +13,6 @@ function main() {
     console.log("Server listening in port", port);
     console.log('Database is connected');
   });
-
-  if (process.env.NODE_ENV === 'production') {
-    app.get('*', (req, res) => {
-      res.sendFile(path.join(__dirname, './public/dist/index.html'))
-    })
-  }
 }
 
 main();

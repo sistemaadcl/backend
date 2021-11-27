@@ -3,6 +3,7 @@ const ordersSchema = mongoose.Schema({
   name: {
     type: String,
   },
+  tracking: String,
   state: {
     type: Boolean,
   },
